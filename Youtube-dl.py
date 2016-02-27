@@ -1,6 +1,9 @@
 from __future__ import unicode_literals
 import youtube_dl
 
+import GUI
+
+
 class Ydl:
     def __init__(self, url, ydlOptions):
         self.url = url
