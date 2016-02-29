@@ -7,6 +7,7 @@ class MainScreen:
         self.directory = ""
 
         master.minsize(width=600, height=400)
+        #master.configure(background="firebrick3")
         frame = Frame(master)
 
         self.urlLabel = Label(frame, text="URL")
@@ -14,6 +15,7 @@ class MainScreen:
         self.albumLabel = Label(frame, text="Album")
         self.titleLabel = Label(frame, text="Title")
         self.directoryLabel = Label(frame, text="Directory")
+
 
         self.urlEntry = Entry(frame, width=50)
         self.artistEntry = Entry(frame, width=50)
@@ -32,7 +34,6 @@ class MainScreen:
         self.albumEntry.grid(row=2, column=1)
         self.titleEntry.grid(row=3, column=1)
         self.directoryEntry.grid(row=4, column=1)
-
 
         self.chooseDirectory = Button(frame, text="Browse", command=self.askDirectory)
         self.chooseDirectory.grid(row=4, column = 2)
