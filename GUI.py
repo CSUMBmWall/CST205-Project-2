@@ -44,7 +44,6 @@ class MainScreen:
         self.directory = filedialog.askdirectory()
         self.directoryEntry.insert(0, self.directory)
 
-
 root = Tk()
 button = MainScreen(root)
 root.mainloop()
