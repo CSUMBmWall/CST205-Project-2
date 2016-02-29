@@ -7,6 +7,7 @@ class MainScreen:
         self.directory = ""
 
         master.minsize(width=600, height=400)
+        #master.configure(background="firebrick3")
         frame = Frame(master)
 
         self.artistLabel = Label(frame, text="Artist")
@@ -14,7 +15,7 @@ class MainScreen:
         self.titleLabel = Label(frame, text="Title")
         self.directoryLabel = Label(frame, text="Directory")
 
-        self.artistEntry = Entry(frame, width=50)
+        self.artistEntry = Entry(frame, width=50, command=self.askArtist)
         self.albumEntry = Entry(frame, width=50)
         self.titleEntry = Entry(frame, width=50)
         self.directoryEntry = Entry(frame, width=50)
@@ -30,7 +31,7 @@ class MainScreen:
         self.directoryEntry.grid(row=3, column=1)
 
 
-        self.chooseDirectory = Button(frame, text="Browse", command=self.askDirectory)
+        self.chooseDirectory = Button(frame, text="Browse")
         self.chooseDirectory.grid(row=3, column = 2)
 
         self.quitButton = Button(frame, text="Quit", command=frame.quit)
@@ -42,6 +43,7 @@ class MainScreen:
     def askDirectory(self):
         self.directory = filedialog.askdirectory()
         self.directoryEntry.insert(0, self.directory)
+
 
 root = Tk()
 button = MainScreen(root)
