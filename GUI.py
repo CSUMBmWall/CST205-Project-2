@@ -38,9 +38,12 @@ class MainScreen:
         self.chooseDirectory = Button(frame, text="Browse", command=self.askDirectory)
         self.chooseDirectory.grid(row=4, column = 2)
 
-        self.quitButton = Button(frame, text="Quit", command=frame.quit)
-        self.quitButton.grid(columnspan=3)
 
+        self.chooseDirectory = Button(frame, text="Enter", command=self.enter)
+        self.chooseDirectory.grid(row=5, column = 2)
+
+        self.quitButton = Button(frame, text="Quit", command=frame.quit)
+        self.quitButton.grid(row=5, column=3)
 
         frame.pack()
 
