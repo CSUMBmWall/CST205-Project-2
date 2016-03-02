@@ -38,7 +38,6 @@ class MainScreen:
         self.chooseDirectory = Button(frame, text="Browse", command=self.askDirectory)
         self.chooseDirectory.grid(row=4, column = 2)
 
-
         self.enterButton = Button(frame, text="Enter", command=self.submit)
         self.enterButton.grid(row=5, columnspan=1)
 
@@ -56,12 +55,15 @@ class MainScreen:
         self.directory = filedialog.askdirectory()
         self.directoryEntry.insert(0, self.directory)
 
+    def submit(self):
+
+
 root = Tk()
 
 button = MainScreen(root)
 
 # keeps the window on the screen
-root.mainloop()
+button.mainloop()
 
 
 
