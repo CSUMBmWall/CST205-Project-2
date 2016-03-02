@@ -53,14 +53,6 @@ class MainScreen:
         self.directory = filedialog.askdirectory()
         self.directoryEntry.insert(0, self.directory)
 
-<<<<<<< HEAD
-
-# import the Tkiner class
-=======
-    def submit(self):
-        print("stuff")
-
->>>>>>> e3feaee89b46909cb97ef6aff8c6280b5bf070b1
 root = Tk()
 
 button = MainScreen(root)
