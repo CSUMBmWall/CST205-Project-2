@@ -38,12 +38,22 @@ class MainScreen:
 
 
         frame.pack()
+    
+        root.mainloop()
 
     def askDirectory(self):
         self.directory = filedialog.askdirectory()
         self.directoryEntry.insert(0, self.directory)
 
+
+# import the Tkiner class
 root = Tk()
+
 button = MainScreen(root)
+
+# keeps the window on the screen
 root.mainloop()
+
+
+
 
