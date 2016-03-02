@@ -44,8 +44,6 @@ class MainScreen:
         self.quitButton = Button(frame, text="Quit", command=frame.quit)
         self.quitButton.grid(row=5, columnspan=4)
 
-        self.chooseDirectory = Button(frame, text="Enter", command=self.enter)
-        self.chooseDirectory.grid(row=5, column = 2)
 
         frame.pack()
     
@@ -56,6 +54,7 @@ class MainScreen:
         self.directoryEntry.insert(0, self.directory)
 
     def submit(self):
+        Return
 
 
 root = Tk()
@@ -63,7 +62,7 @@ root = Tk()
 button = MainScreen(root)
 
 # keeps the window on the screen
-button.mainloop()
+root.mainloop()
 
 
 
