@@ -1,8 +1,11 @@
 from tkinter import *
 from tkinter import filedialog
+from youtubedlAPI import *
 
 
 class MainScreen:
+    url = ""
+
     def __init__(self, master):
         self.directory = ""
 
@@ -46,7 +49,7 @@ class MainScreen:
 
 
         frame.pack()
-    
+
         root.mainloop()
 
     def askDirectory(self):
@@ -54,16 +57,17 @@ class MainScreen:
         self.directoryEntry.insert(0, self.directory)
 
     def submit(self):
-        Return
-
+        url = self.urlEntry.get()
+        options = setOptions(self.titleEntry.get)
+        testYDL = Ydl(url, options)
+        downloadVideo(testYDL)
 
 root = Tk()
 
-button = MainScreen(root)
+app = MainScreen(root)
 
 # keeps the window on the screen
 root.mainloop()
-
 
 
 
