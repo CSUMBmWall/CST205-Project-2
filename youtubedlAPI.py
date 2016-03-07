@@ -1,6 +1,8 @@
 from __future__ import unicode_literals
 import youtube_dl
 
+
+
 class Ydl:
     def __init__(self, url, ydlOptions):
         self.url = url
@@ -20,9 +22,8 @@ def my_hook(d):
     if d['status'] == 'finished':
         print('Done downloading, now converting ...')
 
-def setOptions(title):
+def setOptions():
     ydlOptions = {
-        'title': title,
         'format': 'bestaudio/best',
         'postprocessors': [{
             'key': 'FFmpegExtractAudio',

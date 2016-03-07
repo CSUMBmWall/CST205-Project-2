@@ -58,8 +58,7 @@ class MainScreen:
 
     def submit(self):
         url = self.urlEntry.get()
-        options = setOptions(self.titleEntry.get)
-        testYDL = Ydl(url, options)
+        testYDL = Ydl(url, setOptions())
         downloadVideo(testYDL)
 
 root = Tk()
