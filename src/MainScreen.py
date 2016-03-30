@@ -6,37 +6,35 @@ from YouTubeAPI import *
 class MainScreen:
 
     def __init__(self, master):
-        self.directory = ""
 
         master.minsize(width=600, height=400)
         #master.configure(background="firebrick3")
         frame = Frame(master)
 
-        urlLabel = Label(frame, text="URL")
-        artistLabel = Label(frame, text="Artist")
-        albumLabel = Label(frame, text="Album")
-        titleLabel = Label(frame, text="Title")
-        directoryLabel = Label(frame, text="Directory")
+        self.urlLabel = Label(frame, text="URL")
+        self.artistLabel = Label(frame, text="Artist")
+        self.albumLabel = Label(frame, text="Album")
+        self.titleLabel = Label(frame, text="Title")
+        self.directoryLabel = Label(frame, text="Directory")
 
+        self.urlEntry = Entry(frame, width=50)
+        self.artistEntry = Entry(frame, width=50)
+        self.albumEntry = Entry(frame, width=50)
+        self.albumEntry.insert(0, "YouTube")
+        self.titleEntry = Entry(frame, width=50)
+        self.directoryEntry = Entry(frame, width=50)
 
-        urlEntry = Entry(frame, width=50)
-        artistEntry = Entry(frame, width=50)
-        albumEntry = Entry(frame, width=50)
-        albumEntry.insert(0, "YouTube")
-        titleEntry = Entry(frame, width=50)
-        directoryEntry = Entry(frame, width=50)
+        self.urlLabel.grid(row=0, sticky=E)
+        self.artistLabel.grid(row=1, sticky=E)
+        self.albumLabel.grid(row=2, sticky=E)
+        self.titleLabel.grid(row=3, sticky=E)
+        self.directoryLabel.grid(row=4, sticky=E)
 
-        urlLabel.grid(row=0, sticky=E)
-        artistLabel.grid(row=1, sticky=E)
-        albumLabel.grid(row=2, sticky=E)
-        titleLabel.grid(row=3, sticky=E)
-        directoryLabel.grid(row=4, sticky=E)
-
-        urlEntry.grid(row=0, column=1)
-        artistEntry.grid(row=1, column=1)
-        albumEntry.grid(row=2, column=1)
-        titleEntry.grid(row=3, column=1)
-        directoryEntry.grid(row=4, column=1)
+        self.urlEntry.grid(row=0, column=1)
+        self.artistEntry.grid(row=1, column=1)
+        self.albumEntry.grid(row=2, column=1)
+        self.titleEntry.grid(row=3, column=1)
+        self.directoryEntry.grid(row=4, column=1)
 
         chooseDirectory = Button(frame, text="Browse", command=self.askDirectory)
         chooseDirectory.grid(row=4, column = 2)
@@ -54,7 +52,7 @@ class MainScreen:
 
     def askDirectory(self):
         directory = filedialog.askdirectory()
-        self.directoryEntry.insert(0, self.directory)
+        self.directoryEntry.insert(0, directory)
 
     def submit(self):
         url = self.urlEntry.get()

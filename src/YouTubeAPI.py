@@ -15,7 +15,7 @@ class YouTubeAPI:
         }
 
         with YoutubeDL(ydl_opts) as ydl:
-            ytInfo = ydl.extract_info('https://www.youtube.com/watch?v=Hn1BapsppXM')
+            ytInfo = ydl.extract_info(info['url'])
 
         print('Title of the extracted video/playlist: %s' % ytInfo['title'])
         downloadFileName = info['directory'] + "/" + str(ytInfo['title']) + ".mp3"
