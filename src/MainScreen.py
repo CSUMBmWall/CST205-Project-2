@@ -1,13 +1,11 @@
 from tkinter import *
 from tkinter import filedialog
-from youtubedlAPI import *
+from YouTubeAPI import *
 
 
 class MainScreen:
-    url = ""
 
     def __init__(self, master):
-        self.directory = ""
 
         master.minsize(width=600, height=400)
         #master.configure(background="firebrick3")
@@ -19,10 +17,10 @@ class MainScreen:
         self.titleLabel = Label(frame, text="Title")
         self.directoryLabel = Label(frame, text="Directory")
 
-
         self.urlEntry = Entry(frame, width=50)
         self.artistEntry = Entry(frame, width=50)
         self.albumEntry = Entry(frame, width=50)
+        self.albumEntry.insert(0, "YouTube")
         self.titleEntry = Entry(frame, width=50)
         self.directoryEntry = Entry(frame, width=50)
 
@@ -38,35 +36,44 @@ class MainScreen:
         self.titleEntry.grid(row=3, column=1)
         self.directoryEntry.grid(row=4, column=1)
 
-        self.chooseDirectory = Button(frame, text="Browse", command=self.askDirectory)
-        self.chooseDirectory.grid(row=4, column = 2)
+        chooseDirectory = Button(frame, text="Browse", command=self.askDirectory)
+        chooseDirectory.grid(row=4, column = 2)
 
-        self.enterButton = Button(frame, text="Enter", command=self.submit)
-        self.enterButton.grid(row=5, columnspan=1)
+        enterButton = Button(frame, text="Enter", command=self.submit)
+        enterButton.grid(row=5, columnspan=1)
 
-        self.quitButton = Button(frame, text="Quit", command=frame.quit)
-        self.quitButton.grid(row=5, columnspan=4)
+        quitButton = Button(frame, text="Quit", command=frame.quit)
+        quitButton.grid(row=5, columnspan=4)
 
 
         frame.pack()
 
-        root.mainloop()
+        frame.mainloop()
 
     def askDirectory(self):
-        self.directory = filedialog.askdirectory()
-        self.directoryEntry.insert(0, self.directory)
+        directory = filedialog.askdirectory()
+        self.directoryEntry.insert(0, directory)
 
     def submit(self):
         url = self.urlEntry.get()
-        testYDL = Ydl(url, setOptions())
-        downloadVideo(testYDL)
+        #testYDL = Ydl(url, setOptions())
+        #downloadVideo(testYDL)
+        userInfo = {'url': self.urlEntry.get(),
+                    'artist': self.artistEntry.get(),
+                    'album': self.albumEntry.get(),
+                    'title': self.titleEntry.get(),
+                    'directory': self.directoryEntry.get()
+                    }
 
-root = Tk()
+        YouTubeAPI(userInfo)
 
-app = MainScreen(root)
+
+#root = Tk()
+
+#app = MainScreen(root)
 
 # keeps the window on the screen
-root.mainloop()
+#root.mainloop()
 
 
 
