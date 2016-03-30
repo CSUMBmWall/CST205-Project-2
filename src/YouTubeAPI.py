@@ -1,5 +1,6 @@
 import os
 from youtube_dl import *
+from ID3 import *
 
 class YouTubeAPI:
 
@@ -28,7 +29,11 @@ class YouTubeAPI:
         newFileName =  info['directory'] + "/" + trackInfo + ".mp3"
         print("newFileName - " + newFileName)
 
+
         os.rename(downloadFileName, newFileName)
+
+        ID3(info)
+
 
     def checkInputs(self, info):
         for entry in info:

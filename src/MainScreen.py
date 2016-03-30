@@ -1,6 +1,7 @@
 from tkinter import *
 from tkinter import filedialog
 from YouTubeAPI import *
+from ID3 import *
 
 
 class MainScreen:
@@ -66,6 +67,7 @@ class MainScreen:
                     }
 
         YouTubeAPI(userInfo)
+
 
 
 #root = Tk()
