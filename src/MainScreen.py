@@ -1,6 +1,88 @@
 from tkinter import *
 from tkinter import filedialog
 from YouTubeAPI import *
+
+
+class MainScreen:
+
+    def __init__(self, master):
+
+        master.minsize(width=600, height=400)
+        master.configure(background="black")
+        frame = Frame(master)
+        frame.configure(background = "black")
+
+        self.urlLabel = Label(frame, text="URL", fg = "chartreuse", bg = "black" )
+        self.artistLabel = Label(frame, text="Artist", fg = "chartreuse", bg = "black")
+        self.albumLabel = Label(frame, text="Album", fg = "chartreuse", bg = "black")
+        self.titleLabel = Label(frame, text="Title", fg = "chartreuse", bg = "black")
+        self.directoryLabel = Label(frame, text="Directory", fg = "chartreuse", bg = "black")
+
+        self.urlEntry = Entry(frame, width=50, bg = "chartreuse", highlightbackground = "black", fg = "black")
+        self.artistEntry = Entry(frame, width=50, bg = "chartreuse", highlightbackground = "black", fg = "black")
+        self.albumEntry = Entry(frame, width=50, bg = "chartreuse", highlightbackground = "black", fg = "black")
+        self.albumEntry.insert(0, "YouTube")
+        self.titleEntry = Entry(frame, width=50, bg = "chartreuse", highlightbackground = "black", fg = "black")
+        self.directoryEntry = Entry(frame, width=50, bg = "chartreuse", highlightbackground = "black", fg = "black")
+
+        self.urlLabel.grid(row=0, sticky=E)
+        self.artistLabel.grid(row=1, sticky=E)
+        self.albumLabel.grid(row=2, sticky=E)
+        self.titleLabel.grid(row=3, sticky=E)
+        self.directoryLabel.grid(row=4, sticky=E)
+
+        self.urlEntry.grid(row=0, column=1)
+        self.artistEntry.grid(row=1, column=1)
+        self.albumEntry.grid(row=2, column=1)
+        self.titleEntry.grid(row=3, column=1)
+        self.directoryEntry.grid(row=4, column=1)
+
+        chooseDirectory = Button(frame, text="Browse", command=self.askDirectory, relief = "groove", fg = "chartreuse", bg = "black", activebackground = "chartreuse", activeforeground = "black")
+        chooseDirectory.grid(row=4, column = 2)
+
+        enterButton = Button(frame, text="Enter", command=self.submit, relief = "groove", fg = "chartreuse", bg = "black", activebackground = "chartreuse", activeforeground = "black")
+        enterButton.grid(row=5, column=1)
+
+        quitButton = Button(frame, text="Quit", command=frame.quit, relief = "groove", fg = "chartreuse", bg = "black", activebackground = "chartreuse", activeforeground = "black")
+        quitButton.grid(row=5, column=2)
+
+
+        frame.pack()
+
+        frame.mainloop()
+
+    def askDirectory(self):
+        directory = filedialog.askdirectory()
+        self.directoryEntry.insert(0, directory)
+
+    def submit(self):
+        url = self.urlEntry.get()
+        #testYDL = Ydl(url, setOptions())
+        #downloadVideo(testYDL)
+
+        userInfo = {'url': self.urlEntry.get(),
+                    'artist': self.artistEntry.get(),
+                    'album': self.albumEntry.get(),
+                    'title': self.titleEntry.get(),
+                    'directory': self.directoryEntry.get()
+                    }
+
+        YouTubeAPI(userInfo)
+
+
+'''
+root = Tk()
+
+app = MainScreen(root)
+
+# keeps the window on the screen
+root.mainloop()
+
+'''
+'''
+from tkinter import *
+from tkinter import filedialog
+from YouTubeAPI import *
 from ID3 import *
 
 
@@ -79,3 +161,4 @@ class MainScreen:
 
 
 
+'''

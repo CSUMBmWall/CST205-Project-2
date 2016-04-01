@@ -5,7 +5,7 @@ from mutagen._file import File
 
 class ID3:
 
-    def __init__(self, info):
+    def __init__(self, info, newFileName):
 
         trackInfo = info['artist'] + " - " + info['album'] + " - " + info['title']
         newFileName = info['directory'] + "/" + trackInfo + ".mp3"

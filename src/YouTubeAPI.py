@@ -32,7 +32,7 @@ class YouTubeAPI:
 
         os.rename(downloadFileName, newFileName)
 
-        ID3(info)
+        ID3(info, newFileName)
 
 
     def checkInputs(self, info):
