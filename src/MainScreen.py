@@ -50,7 +50,7 @@ class MainScreen:
         #create buttons
         chooseDirectory = Button(frame, text="Browse", command=self.askUserForDirectory, relief ="groove", fg ="chartreuse", bg ="black", activebackground ="chartreuse", activeforeground ="black")
         quitButton = Button(frame, text="Quit", command=frame.quit, relief="groove", fg="chartreuse", bg="black", activebackground="chartreuse", activeforeground="black")
-        enterButton = Button(frame, text="Enter", command=self.submit, relief="groove", fg="chartreuse", bg="black", activebackground="chartreuse", activeforeground="black")
+        enterButton = Button(frame, text="Download", command=self.submit, relief="groove", fg="chartreuse", bg="black", activebackground="chartreuse", activeforeground="black")
 
         #place buttons
         chooseDirectory.grid(row=5, column = 2, sticky=N+S)

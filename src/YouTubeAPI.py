@@ -1,6 +1,6 @@
 import os
 from youtube_dl import *
-from ID3 import *
+from mutagen.ID3 import *
 
 '''
 This class utilizes youtube-dl to download mp3 from YouTube
